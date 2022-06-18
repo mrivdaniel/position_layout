@@ -1,23 +1,40 @@
-/* seteo inicial para trabajar en el modelo alternativo de boxes, con box-sizing */
+/* seteo de las condiciones iniciales, asi evitamos problemas por detalles tecnicos de dimensionamiento */
 * {
     box-sizing: border-box;
-    padding: 0;
     margin: 0;
+    padding: 0;
 }
 
-/* voy a establecer un padre relative para posicionar un parrafo mediante position: absolute. */
-
-/* lo primero es centrar el padre en el body */
-html {
+/* si no defino una altura de forma explicita al body no puedo ocupar el 50% en una caja sin contenido, la altura del body antes de definirla era cero. */
+body {
     height: 100vh;
 }
-body {
-    background-color: blue;
+
+.container {
+    background-color: salmon;
+    width: 30%;
+    height: 30%;
+    margin: 0 auto;
+    position: relative;
+    top: 25%; /* con esto dejo ajustado de forma vertical justo en el centro*/
+    border-radius: 2rem;
 }
-.box {
+
+.container__center {
     width: 50%;
     height: 50%;
+    position: absolute;
+    top: 25%;
+    left: 25%;
+}
+
+.container__top {
     background-color: red;
-
-
-
+    width: 50%;
+    position: absolute;
+    left: 25%;
+    text-align: center;
+    padding: 1rem 0;
+    border-radius: .5rem;
+    top: -20px;
+}
